@@ -21,7 +21,7 @@ mongoose.connection.on("error", err => {
   }
 });
 
-const port = 3000;
+const port = process.env.PORT || 8080;
 
 //middleware for using different port/domains
 app.use(cors());
@@ -29,7 +29,7 @@ app.use(cors());
 //parser
 app.use(bodyparser.json());
 
-app.use(express.static(path.join(__dirname, "public")));
+//app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "/dist/holiday-villas")));
 app.use("/api", route);
 

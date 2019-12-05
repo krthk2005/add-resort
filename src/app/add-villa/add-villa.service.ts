@@ -18,7 +18,7 @@ export class VillaService {
 
   addVilla(newVilla: VillaModel) {
     return this.http
-      .post<VillaModel>("http://localhost:3000/api/villa", newVilla, {
+      .post<VillaModel>("/api/villa", newVilla, {
         headers: new HttpHeaders({ "Content-Type": "application/json" })
       })
       .pipe(catchError(this.handleError));
